@@ -12,7 +12,7 @@
                     
 <div class="container">
   <div class="row justify-content-center text-center mt-3">
-    <form method="post">
+    <form method="post" action="inc/login_system/signup_code.php">
       <div class="row">
         <div class="form-group col-6">
           <label class="col-form-label">First name</label>

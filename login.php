@@ -12,7 +12,7 @@
                     
 <div class="container">
   <div class="row justify-content-center text-center mt-3">
-    <form method="post">
+    <form method="post" action="inc/login_system/login_code.php">
       <div class="form-group">
         <label>Email address</label>
         <input type="email" class="form-control" id="email_login" aria-describedby="emailHelp">
