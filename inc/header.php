@@ -31,13 +31,9 @@
             <div class="col-6 col-md-6 text-right col-sm-6 col-6">
               <div class="site-top-icons">
                 <ul>
-                  <li>  <!--Singup window-->
-                        <!-- Button modal -->
-                  <a href="" data-toggle="modal" data-target="#SingUp_modal">SingUp</a>
-
-                        <!-- Modal -->
-                        <?php include_once("inc/modal.php") ?>
-                        <!-- Modal -->
+                  <li>  
+                      <!--Singup window-->
+                  <a href="sign_up.php">SingUp</a>
 
                   </li>
                   <li>
