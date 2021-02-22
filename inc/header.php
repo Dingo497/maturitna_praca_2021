@@ -31,11 +31,15 @@
             <div class="col-6 col-md-6 text-right col-sm-6 col-6">
               <div class="site-top-icons">
                 <ul>
-                  <li>  
-                      <!--Singup window-->
-                  <a href="sign_up.php">SingUp</a>
 
-                  </li>
+    <?php 
+      if (isset($_SESSION['emailid'])) {
+        echo '<li><a href="inc/login_system/logout.php">Log out</a></li>';
+      }else{
+        echo '<li><a href="sign_up.php">SingUp</a></li>';
+      }
+    ?>
+
                   <li>
                     <a href="cart.php" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
@@ -71,6 +75,11 @@
             <li><a href="about.php">About</a></li>
             <li><a href="shop.php">Shop</a></li>
             <li><a href="contact.php">Contact</a></li>
+            <?php 
+              if (isset($_SESSION['emailid'])) {
+                echo '<li><a href="profile.php">Profile</a></li>';
+              }
+            ?>
           </ul>
         </div>
       </nav>

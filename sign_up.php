@@ -45,6 +45,28 @@
 </div>
 
 
+<?php 
+if (isset($_GET['error'])) {
+  if ($_GET['error'] == 'emptyinput') {
+    echo "<p class='text-danger h2 text-center mt-3'>Fill in all fields!</p>";
+  }
+  else if($_GET['error'] == 'invalidemail'){
+    echo "<p class='text-danger h2 text-center mt-3'>Check your email!</p>";
+  }
+  else if($_GET['error'] == 'emailtaken'){
+    echo "<p class='text-danger h2 text-center mt-3'>This email is taken!</p>";
+  }
+  else if($_GET['error'] == 'stmtfailed'){
+    echo "<p class='text-danger h2 text-center mt-3'>Something went wrong, please try again!</p>";
+  }
+  else if ($_GET['error'] == 'none') {
+    echo "<p class='text-success h2 text-center mt-3'>Your registration was successful!</p>";
+  }
+}
+
+ ?>
+
+
 
 </body>
 </html>
