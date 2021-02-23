@@ -36,7 +36,9 @@
       if (isset($_SESSION['emailid'])) {
         echo '<li><a href="inc/login_system/logout.php">Log out</a></li>';
       }else{
-        echo '<li><a href="sign_up.php">SingUp</a></li>';
+        echo '<li><a href="sign_up.php" class="m-0">SingUp</a></li>';
+        echo '<span class="mr-2 ml-2">|</span>';
+        echo '<li><a href="login.php"> Login</a></li>';
       }
     ?>
 

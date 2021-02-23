@@ -13,7 +13,7 @@ if (isset($_POST['submit_register'])) {
 	$checkbox = $_POST['Check1'];
 
 //if je prazdny string
-	if (emptyInputSignup($name, $lname, $email, $password) !== false) {
+	if (emptyInputSignup($name, $lname, $email, $password, $checkbox) !== false) {
 		header("location: ../../sign_up.php?error=emptyinput");
 		exit(); //stopne tento script totalne
 	}

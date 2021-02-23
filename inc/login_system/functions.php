@@ -2,9 +2,9 @@
 
 
 
-function emptyInputSignup($name, $lname, $email, $password){
+function emptyInputSignup($name, $lname, $email, $password, $checkbox){
 	$result; //na true or false
-	if (empty($name) || empty($lname) || empty($email) || empty($password)) {
+	if (empty($name) || empty($lname) || empty($email) || empty($password) || $checkbox == false) {
 		$result = true;
 	}else{
 		$result = false;

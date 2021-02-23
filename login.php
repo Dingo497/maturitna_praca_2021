@@ -24,7 +24,7 @@
       <div class="form-group">
         <a class="text-primary h5" href="sign_up.php" name="link_modal2">Do you don't already have an account?</a>
       </div>
-      <a type="submit" class="btn btn-secondary mr-2">Close</a>
+      <a type="submit" href="login.php" class="btn btn-secondary mr-2">Close</a>
       <button type="submit" name="submit_login" class="btn btn-primary">Submit</button>
     </form>
   </div>
