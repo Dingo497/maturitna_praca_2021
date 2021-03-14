@@ -53,6 +53,9 @@ function emailExist($connect, $email){
 
 
 function createUser($connect, $name, $lname, $email, $password){
+	$clname 	= clearOfSpecialChars($name);
+	$cllname 	= clearOfSpecialChars($lname);
+
 	$sql = "INSERT INTO user (firstname, lastname, email, password, CreatedAt, UpdatedAt) VALUES (?, ?, ?, ?, now(), now())"; //sql injection
 	$stmt = mysqli_stmt_init($connect); //vrati objekt roznych hodnot napoji sa na moju databazu akoby
 
@@ -63,7 +66,7 @@ function createUser($connect, $name, $lname, $email, $password){
 
 	$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-	mysqli_stmt_bind_param($stmt, "ssss", $name, $lname, $email, $hashedPassword); //validacia nahodi parametre
+	mysqli_stmt_bind_param($stmt, "ssss", $clname, $cllname, $email, $hashedPassword); //validacia nahodi parametre
 	mysqli_stmt_execute($stmt); //vykonaj
 	mysqli_stmt_close($stmt);
 
