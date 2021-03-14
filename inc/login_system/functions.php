@@ -124,3 +124,12 @@ function emptyInput($input){
 	}
 	return $result;
 }
+
+
+function clearOfSpecialChars($input){
+	$result;
+	if ($clinput = filter_var($input, FILTER_SANITIZE_SPECIAL_CHARS)){
+		$result = $clinput;
+	}
+	return $result;
+}

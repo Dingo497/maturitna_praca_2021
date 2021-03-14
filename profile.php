@@ -36,6 +36,9 @@ if (isset($_GET['error'])) {
   else if($_GET['error'] == 'emptyinput'){
     echo '<h2 class="text-center text-danger">Write something!</h2>';
   }
+  else if($_GET['error'] == 'specialchars'){
+    echo '<h2 class="text-center text-danger">You tried write special characters!</h2>';
+  }
 }
  ?>
 
