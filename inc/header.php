@@ -15,6 +15,7 @@
 
 <head>
   <title><?php echo $pagename; ?> &mdash; školská práca</title>
+  <?php include_once('inc/profile/profile_code.php'); ?>
 </head>
 
     <header class="site-navbar" role="banner">
@@ -34,7 +35,10 @@
 
     <?php 
       if (isset($_SESSION['emailid'])) {
-        echo '<li><a href="inc/login_system/logout.php">Log out</a></li>';
+        echo '
+        <li><img class="my-icon" src="'.$info['avatar'].'"></li>
+        <li><a class="text-primary" href="profile.php">'.$_SESSION['emailname'].'</a></li>
+        <li><a href="inc/login_system/logout.php">Log out</a></li>';
       }else{
         echo '<li><a href="sign_up.php" class="m-0">SingUp</a></li>';
         echo '<span class="mr-2 ml-2">|</span>';
@@ -87,3 +91,41 @@
       </nav>
     </header>
                     <!-- Header a Navbar -->
+
+
+<style type="text/css">
+
+@media only screen and (max-width: 768px){
+  .my-icon{
+    max-width: 8%; 
+    position: absolute; 
+    right:85%; 
+    top:2%;
+  }
+}
+@media only screen and (min-width: 768px){
+  .my-icon{
+    max-width: 8%; 
+    position: absolute; 
+    right:73%; 
+    top:0%;
+  }
+}
+@media only screen and (min-width: 992px){
+  .my-icon{
+    max-width: 8%; 
+    position: absolute; 
+    right:55%; 
+    top:-20%;
+  }
+}
+@media only screen and (min-width: 1200px){
+  .my-icon{
+    max-width: 8%; 
+    position: absolute; 
+    right:46%; 
+    top:-20%;
+  }
+}
+
+</style>

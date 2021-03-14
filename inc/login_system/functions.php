@@ -14,19 +14,6 @@ function emptyInputSignup($name, $lname, $email, $password, $checkbox){
 
 
 
-/*function invalidUid($email){
-	$result; 
-	if (!preg_match("/^[a-zA-Z0-9]*$/"), $email) {
-		//^ zaciatok riadku [a-zA-Z0-9] to je jasne $koniec riadku
-		$result = true;
-	}else{
-		$result = false;
-	}
-	return $result;
-}*/
-
-
-
 function invalidEmail($email){
 	$result; 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -121,4 +108,19 @@ function loginUser($connect, $email, $password){
 		header("location: ../../index.php");
 		exit();
 	}
+}
+
+
+
+
+
+
+function emptyInput($input){
+	$result;
+	if (empty($input) == false) {
+		$result = true;
+	}else{
+		$result = false;
+	}
+	return $result;
 }

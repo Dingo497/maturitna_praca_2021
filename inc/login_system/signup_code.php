@@ -26,7 +26,7 @@ if (isset($_POST['submit_register'])) {
 	}
 
 //if user uz existuje v databaze
-	if (emailExist($connect, $email) !== false) { //mozno conn len
+	if (emailExist($connect, $email) !== false) {
 		header("location: ../../sign_up.php?error=emailtaken");
 		exit(); //stopne tento script totalne
 	}
