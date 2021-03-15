@@ -1,16 +1,30 @@
 
 <!-- Header a Navbar -->
-<?php session_start(); ?>
+<?php session_start();
+   
+  //  Zmeni index.php na Home v title 
+  $pagename = ucfirst(basename($_SERVER['SCRIPT_NAME'],'.php')); //--> path -> /index.php -> index
 
+  if ($pagename == 'Index') {
+    $pagename = 'Home';
+  }
 
-  <?php 
-
-    $pagename = ucfirst(basename($_SERVER['SCRIPT_NAME'],'.php')); //--> path -> /index.php -> index
-
-    if ($pagename == 'Index') {
-      $pagename = 'Home';
+  //  Ak nieje prihlaseny uzivatel redirect na login
+  if (empty($_SESSION['emailid'])) {
+    if ($pagename == 'Profile') {
+      header("Location: login.php");
     }
+  }
 
+  //  Ak nemas v kosiku veci tak redirect na cart
+  if (empty($_SESSION['shopping cart'])) {
+    if ($pagename == 'Checkout') {
+      header("Location: cart.php");
+    }
+    if ($pagename == 'Thankyou') {
+      header("Location: cart.php");
+    }
+  }
   ?>
 
 <head>
