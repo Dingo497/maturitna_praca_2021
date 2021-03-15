@@ -32,10 +32,12 @@ $cartArray = array(
 if (empty($_SESSION["shopping cart"])) {
 	$_SESSION["shopping cart"] = $cartArray;
 	$status = "product is added in your cart";
+	header("Refresh:0");
 
 }else{
 	$_SESSION["shopping cart"] = array_merge($_SESSION["shopping cart"], $cartArray);
 	$status = "product is added in your cart";
+	header("Refresh:0");
 }
 }
 //unset($_SESSION["shopping cart"]);
