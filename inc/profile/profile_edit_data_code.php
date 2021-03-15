@@ -59,19 +59,19 @@ else if (isset($_POST['comfirm_edit_email'])){
 	$email = $_POST['edit_email'];
 
 	if (!invalidEmail($email) && !emailExist($connect, $email)) {
-		if ($clemail = clearOfSpecialChars($lname)) {
+		$clemail = clearOfSpecialChars($email);
 		$sql = $connect->prepare("UPDATE user SET email = ? WHERE id='".$_SESSION['emailid']."'");
 		$sql->bind_param('s', $clemail);
 	
 		if ($sql->execute()) {
 			header("location: ../../profile.php?error=none");
 			exit();
+			echo "najs";
 		}else{
 			echo "nevyslo to: ".mysqli_error($connect);
 			header("location: ../../profile.php?error=sqlproblem");
 			exit();
 		}
-	}
 	}else{
 		header("location: ../../profile.php?error=mustemail");
 			exit();

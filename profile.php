@@ -16,7 +16,7 @@
 <?php 
 if (isset($_GET['error'])) {
   if ($_GET['error'] == 'none') {
-    echo '<h2 class="text-center text-success">Your avatar was successfully edited</h2>';
+    echo '<h2 class="text-center text-success">Your data was successfully edited</h2>';
   }
   else if($_GET['error'] == 'filenotuploaded'){
     echo '<h2 class="text-center text-danger">Something went wrong!</h2>';
@@ -38,6 +38,12 @@ if (isset($_GET['error'])) {
   }
   else if($_GET['error'] == 'specialchars'){
     echo '<h2 class="text-center text-danger">You tried write special characters!</h2>';
+  }
+  else if($_GET['error'] == 'wronglogin'){
+    echo '<h2 class="text-center text-danger">Wrong login informations!</h2>';
+  }
+  else if($_GET['error'] == 'samepassword'){
+    echo '<h2 class="text-center text-danger">Your old password is same with your new password!</h2>';
   }
 }
  ?>
@@ -85,10 +91,24 @@ if (isset($_GET['error'])) {
       <?php endif ?>
     </div>
   </div>
+
+
+
+
+<h1 class="ml-5 text-primary"><u>Change password:</u></h1>
+<div class="text-left my-3 mx-5 rounded align-items-center" style="border: solid; border-color: #b8b8b8; border-width: 0.2px;">
+  <form method="post" action="inc/profile/change_password.php">
+    <h4 class="m-3 text-dark">Please enter your login informations</h4>
+    <div class="row mx-4 mb-4 justify-content-start">
+      <input type="text" name="email" class="col-3 mx-3" placeholder="Your email">
+      <input type="text" name="password" class="col-3 mx-3" placeholder="Your password">
+      <input type="text" name="new_password" class="col-3 mx-3" placeholder="Your new password">
+    </div>
+    <input type="submit" name="submit_log_pass" class="btn btn-primary text-center mx-5 mb-4">
+  </form>
 </div>
 
-
-
+</div>
 
 </body>
 </html>
