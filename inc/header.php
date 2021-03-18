@@ -1,6 +1,8 @@
 
 <!-- Header a Navbar -->
 <?php session_start();
+
+include_once'config.php';
    
   //  Zmeni index.php na Home v title 
   $pagename = ucfirst(basename($_SERVER['SCRIPT_NAME'],'.php')); //--> path -> /index.php -> index
@@ -17,7 +19,7 @@
   }
 
   //  Ak nemas v kosiku veci tak redirect na cart
-  if (empty($_SESSION['shopping cart'])) {
+  if (empty($_SESSION['shopping cart']) && empty($_SESSION['emailid'])) {
     if ($pagename == 'Checkout') {
       header("Location: cart.php");
     }
@@ -25,7 +27,21 @@
       header("Location: cart.php");
     }
   }
-  ?>
+
+  //  Ak nemas v kosiku ale si prihlaseny
+  if (!empty($_SESSION['emailid'])){
+    $sql = 'SELECT id,user_id FROM user_cart WHERE user_id = "'.$_SESSION['emailid'].'"';
+    $result = $connect->query($sql);
+    if ($result->num_rows==0) {
+      if ($pagename == 'Checkout') {
+        header("Location: cart.php");
+      }
+      if ($pagename == 'Thankyou') {
+        header("Location: cart.php");
+      }
+    }
+  }
+?>
 
 <head>
   <title><?php echo $pagename; ?> &mdash; školská práca</title>
@@ -64,13 +80,27 @@
                     <a href="cart.php" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
                       <span class="count"> 
-    <?php 
+    <?php
+    if (empty($_SESSION['emailid'])) {
       if(!empty($_SESSION["shopping cart"])) {
         $cart_count = count(array_keys($_SESSION["shopping cart"]));
         echo $cart_count;
       }else{
         echo 0;
       }
+    } else if(!empty($_SESSION['emailid'])){
+      $sql = 'SELECT user_id FROM user_cart WHERE user_id = "'.$_SESSION['emailid'].'"';
+
+      $result = $connect->query($sql);
+      if ($result->num_rows>0) {
+        while ($row = $result->fetch_assoc()) {
+          $a++;
+        }
+        echo $a;
+      } else{
+        echo 0;
+      }
+    }
     ?>
                       </span>
                     </a>

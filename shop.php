@@ -19,10 +19,18 @@
         <div class="row">
           <div class="col-md-12 mb-5">
             <div class="float-md-left mb-4"><h2 class="text-black h4" id="textChange">Shop All</h2>
-            <?php if (isset($status)) {
-              echo '<h3 class="text-center text-primary text-uppercase">'.$status.'</h3>';
-            }
-            ?>
+            
+<?php
+if (isset($_GET['error'])) {
+  if ($_GET['error'] == 'none') {
+    echo '<h3 class="text-center text-primary text-uppercase">Your product was added to you cart!</h3>';
+  }
+  if ($_GET['error'] == 'sqlproblem') {
+    echo '<h3 class="text-center text-danger text-uppercase">Something wrong!</h3>';
+  }
+}
+?>
+
             </div>
           </div>
         </div>
