@@ -33,9 +33,9 @@
 
                         <div class="col-lg-5 col-md-5 col-sm-12 col-9 ml-lg-3">
                           <h1 class="mb-2">Find your favorite things</h1>
-                          <h3 class="mb-2"><?php echo $row["title"]; ?></h3>
+                          <h3 class="mb-2 h2 text-primary"><?php echo $row["title"]; ?></h3>
                           <div class="intro-text">
-                            <p class="mb-4"><?php echo $row["description"]; ?></p>
+                            <p class="mb-4 h6"><?php echo $row["description"]; ?></p>
                             <p>
                               <a href="shop.php" class="btn btn-sm btn-primary">Shop Now</a>
                             </p>

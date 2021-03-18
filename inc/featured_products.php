@@ -22,8 +22,8 @@
 ?>
 
               <div class="item">
-                <div class="card text-center" style="width: 22rem;">
-                  <img src="<?php echo $row["img_source"]; ?>" class="card-img-top">
+                <div class="card text-center" style="width: 21rem;">
+                  <img src="<?php echo $row["img_source"]; ?>" class="card-img-top" style="max-height: 238px;">
                   <div class="card-body">
                    <h5 class="card-title"><?php echo $row["title"]; ?></h5>
                    <p class="card-text"><?php echo $row["description"]; ?></p>

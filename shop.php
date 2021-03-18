@@ -57,7 +57,7 @@ if ($result->num_rows>0) {
   <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
     <div class="block-4 text-center border">
       <div class="card text-center" style="width: 16rem;">
-        <img src="<?php echo $row_cat["img_source"]; ?>" class="card-img-top" alt="img">
+        <img src="<?php echo $row_cat["img_source"]; ?>" class="card-img-top" alt="img" style="max-height: 320px;">
         <div class="card-body">
           <h5 class="card-title bg-info rounded p-1 text-light"> <?php echo $row_cat["title"]; ?> </h5>
           <p class="card-text"> <?php echo $row_cat["description"]; ?> </p>
