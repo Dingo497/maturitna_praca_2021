@@ -55,7 +55,7 @@ include_once'config.php';
 
             <div class="col-6 mb-3 mb-md-0 col-md-6 text-center col-sm-6">
               <div class="site-logo text-left">
-                <a href="index.php">e-shop</a>
+                <a href="index.php">bestshop</a>
               </div>
             </div>
 

@@ -22,7 +22,7 @@
   $result_products = $connect->query($sql_products);
 
   if ($result_products->num_rows>0) {
-    while ($row = $result_products->fetch_assoc()) {  
+    while ($row = $result_products->fetch_assoc()) {   
 ?>
                   <div class="item">
                     <div class="container">
