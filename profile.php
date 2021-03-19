@@ -37,13 +37,13 @@ if (isset($_GET['error'])) {
     echo '<h2 class="text-center text-danger">Write something!</h2>';
   }
   else if($_GET['error'] == 'specialchars'){
-    echo '<h2 class="text-center text-danger">You tried write special characters!</h2>';
+    echo '<h2 class="text-center text-danger">You tried to write special characters!</h2>';
   }
   else if($_GET['error'] == 'wronglogin'){
     echo '<h2 class="text-center text-danger">Wrong login informations!</h2>';
   }
   else if($_GET['error'] == 'samepassword'){
-    echo '<h2 class="text-center text-danger">Your old password is same with your new password!</h2>';
+    echo '<h2 class="text-center text-danger">Your old password is the same as your new password!</h2>';
   }
 }
  ?>
@@ -101,8 +101,8 @@ if (isset($_GET['error'])) {
     <h4 class="m-3 text-dark">Please enter your login informations</h4>
     <div class="row mx-4 mb-4 justify-content-start">
       <input type="text" name="email" class="col-3 mx-3" placeholder="Your email">
-      <input type="text" name="password" class="col-3 mx-3" placeholder="Your password">
-      <input type="text" name="new_password" class="col-3 mx-3" placeholder="Your new password">
+      <input type="password" name="password" class="col-3 mx-3" placeholder="Your password">
+      <input type="password" name="new_password" class="col-3 mx-3" placeholder="Your new password">
     </div>
     <input type="submit" name="submit_log_pass" class="btn btn-primary text-center mx-5 mb-4">
   </form>

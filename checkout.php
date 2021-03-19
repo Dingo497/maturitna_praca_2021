@@ -7,6 +7,7 @@
 
   <?php include_once('inc/header.php'); ?>
   <?php include_once('inc/checkout_order.php'); ?>
+  <?php include_once('inc/config.php'); ?>
 
 
                     <!-- Form -->
@@ -96,7 +97,8 @@
                     </thead>
                     <tbody>
     <?php
-    if (!empty($_SESSION["shopping cart"])) {
+    //  Ak nieje prihlaseny
+    if (!empty($_SESSION["shopping cart"]) && empty($_SESSION['emailid'])) {
       foreach ($_SESSION["shopping cart"] as $key => $value) {
     ?>
                       <tr>
@@ -110,6 +112,33 @@
       $total_price = $value['sum'];
      }
     } } ?>
+
+
+    <?php
+    //  Ak je prihlaseny
+    if (!empty($_SESSION['emailid'])) {
+      $sql = 
+    'SELECT * FROM user_cart
+    WHERE user_id = "'.$_SESSION['emailid'].'"';
+
+    $result = $connect->query($sql);
+    if ($result->num_rows>0) {
+      while ($row = $result->fetch_assoc()) {
+    ?>
+
+                      <tr>
+                        <td><?php echo $row["title"]; ?></td>
+                        <td>$<?php echo $row["sum"]; ?></td>
+                      </tr>
+    <?php
+      if (isset($total_price)) {
+        $total_price = $total_price + $row['sum'];
+      }else{
+        $total_price = $row['sum'];
+      }
+    } } }
+    ?>
+
                       <tr>
                         <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
                         <td class="text-black font-weight-bold"><strong>

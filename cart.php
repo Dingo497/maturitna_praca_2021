@@ -71,7 +71,12 @@ if (isset($_GET['error'])) {
              }
               ?>
 
-  <?php  } } } 
+  <?php  } }
+  else{ ?>
+                <tr>
+                  <h3 class="text-center h1 text-danger text-uppercase">Your shopping cart is empty!</h3>
+                </tr>
+<?php  } } 
     //  AK je prihlaseny tento kosik
   else if (!empty($_SESSION['emailid'])){ 
     $sql = 

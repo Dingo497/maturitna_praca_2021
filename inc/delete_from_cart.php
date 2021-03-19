@@ -5,12 +5,16 @@ if (empty($_SESSION['emailid'])) {
 		foreach ($_SESSION['shopping cart'] as $key => $value) {
 			if ($_POST['id'] == $value['id']) {
 				unset($_SESSION['shopping cart'][$key]);
-				header("Refresh:0");
+				header("location: ../../e-shop/cart.php?error=none");
+				exit();
 			}
 			if(empty($_SESSION["shopping cart"])){
-	      		unset($_SESSION["shopping cart"]);
-	      		header("Refresh:0");
-	      	}
+	      unset($_SESSION["shopping cart"]);
+	      header("location: ../../e-shop/cart.php?error=none");
+	      /*if nefunguje dat toto 
+	      <script>  window.location = "cart.php?error=none"; </script>*/
+				exit();
+	    }
 	      	
 		}
 	}
@@ -25,6 +29,8 @@ if (empty($_SESSION['emailid'])) {
 			exit();
 		}else {
 			header("location: ../../e-shop/cart.php?error=sqlproblem");
+			/*if nefunguje dat toto 
+	      <script>  window.location = "cart.php?error=none"; </script>*/
 			exit();
 		}
 	}
